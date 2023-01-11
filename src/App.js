@@ -11,12 +11,8 @@ function App() {
 			<Navbar />
 			<div style={{ maxWidth: 1280, margin: "auto", padding: 10 }}>
 				<Routes>
-					<Route
-						path="/"
-						exact
-						// element={}
-					/>
-					<Route path="/board/:boarid" caseSensitive={false} element={<BoardList />} />
+					<Route path="/" element={<Home />} />
+					<Route path="/board" element={<BoardList />} />
 				</Routes>
 			</div>
 		</Router>
