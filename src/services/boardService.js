@@ -14,3 +14,14 @@ export function getBoard(boardId) {
 		method: "GET",
 	}).then(resp => resp.json());
 }
+
+export function postBoard(title, content) {
+	const boardApiUrl = `${API_BASE_URL}/board/`;
+	return fetch(boardApiUrl, {
+		method: "POST",
+		body: JSON.stringify({
+			title,
+			content,
+		}),
+	}).then(resp => resp.json());
+}

@@ -7,6 +7,7 @@ import BoardList from "./pages/BoardList";
 import BoardDetail from "./pages/BoardDetail";
 import BoardLayout from "./layouts/BoardLayout";
 import AdminLayout from "./layouts/AdminLayout";
+import BoardCreate from "./pages/BoardCreate";
 
 function App() {
 	return (
@@ -17,6 +18,8 @@ function App() {
 					<Route path="/" element={<Home />} />
 					<Route path="/board" element={<BoardLayout />}>
 						<Route path="/board" element={<BoardList />} />
+						<Route path="/board/create" element={<BoardCreate />} />
+
 						<Route path="/board/:boardId" element={<BoardDetail />} />
 					</Route>
 					<Route path="/admin" element={<AdminLayout />}>

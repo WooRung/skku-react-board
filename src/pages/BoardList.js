@@ -14,7 +14,6 @@ export default function BoardList() {
 	useEffect(() => {
 		getBoardList().then(data => {
 			console.log(data);
-
 			setBoardList(data);
 		});
 	}, []);
@@ -22,6 +21,13 @@ export default function BoardList() {
 	return (
 		<div>
 			<h3>BoardList</h3>
+			<button
+				type="button"
+				onClick={e => {
+					navigate("/board/create");
+				}}>
+				글 쓰기
+			</button>
 
 			<ul>
 				{boardList.map(board => (
