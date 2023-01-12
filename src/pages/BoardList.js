@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate, useParams, useMatch } from "react-router-dom";
 import { getBoardList } from "../services/boardService";
 
@@ -11,9 +11,13 @@ export default function BoardList() {
 		{ id: 1, title: "제목1" },
 		{ id: 2, title: "제목2" },
 	]);
-	const sample = getBoardList().then(resp => {
-		console.log(resp);
-	});
+	useEffect(() => {
+		getBoardList().then(data => {
+			console.log(data);
+
+			setBoardList(data);
+		});
+	}, []);
 
 	return (
 		<div>
