@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate, useParams, useLocation } from "react-router-dom";
+
+import { getBoard } from "../services/boardService";
 
 export default function BoardDetail() {
 	const navigate = useNavigate();
 	const { boardId } = useParams();
-	console.log(boardId);
+	const [board, setBoard] = React.useState({});
+
+	useEffect(() => {
+		console.log(boardId);
+		getBoard(boardId).then(data => {
+			setBoard(data);
+		});
+	}, [boardId]);
 
 	return (
 		<div>
@@ -16,7 +25,11 @@ export default function BoardDetail() {
 				}}>
 				뒤로
 			</button>
-			<div>..</div>
+			<div>
+				<h3>{board.title}</h3>
+
+				<div>{board.content}</div>
+			</div>
 		</div>
 	);
 }
